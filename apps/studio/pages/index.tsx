@@ -1,29 +1,38 @@
 import Layout from "../components/layout";
 import Narbar from "../components/navbar";
-import { Container, useStepContext } from "@mui/material";
+import { Container } from "@mui/material";
 import Image from "next/image";
 import Before from "../assets/images/beforeAfter/set1Before.jpg";
 import After from "../assets/images/beforeAfter/set1After.jpg";
 import { useEffect, useState } from "react";
 
 export default function HomePage() {
-    const [yPosition, setYPosition] = useState(0);
-    const [beforeOpacity, setBeforeImgOpacity] = useState(0.5);
-    const [afterOpcacity, setAfterImgOpcacity] = useState(0);
+    const [rawOpacity, setBeforeImgOpacity] = useState(0.5);
+    const [colorOpacity, setAfterImgOpcacity] = useState(0);
 
     const handleScroll = () => {
-        const bgImgAf = document.getElementById("before");
-        const imgHeight = bgImgAf.clientHeight;
+        const rawImg = document.getElementById("raw");
+        const imgHeight = rawImg.clientHeight;
         const position = window.pageYOffset;
 
-        let opacity = 1;
-        if (position < imgHeight) {
-            opacity = (imgHeight - position) / imgHeight / 2;
-            console.log("Opacity value: " + opacity);
+        const landingSection = document.getElementById("landingSection");
+
+        let opacity = 0.5;
+        if (position > 0 && position < landingSection.clientHeight / 2) {
+            opacity = position / landingSection.clientHeight;
+            opacity = 0.5 - opacity;
+            // console.log("Opacity value: " + opacity);
             setBeforeImgOpacity(opacity);
-            setAfterImgOpcacity(0.5 - opacity);
         }
-        setYPosition(position);
+
+        let afterOpacit = 0;
+        if (position > (landingSection.clientHeight - imgHeight) / 2 && position < landingSection.clientHeight) {
+            afterOpacit = 0.5 - position / (landingSection.clientHeight - imgHeight);
+            afterOpacit = Math.abs(afterOpacit);
+            console.log("Opacity value:" + afterOpacit);
+            setAfterImgOpcacity(afterOpacit);
+        }
+        console.log(position);
     };
 
     useEffect(() => {
@@ -39,7 +48,7 @@ export default function HomePage() {
                 <div className='heroImg'>
                     <Narbar />
                     <Container>
-                        <div style={{ opacity: beforeOpacity }} className='sologan'>
+                        <div style={{ opacity: 1 }} className='sologan'>
                             <span className='wordmarkWhite'>Visualize</span>
                             <br />
                             <span className='wordmarkWhite'>Your</span>
@@ -54,32 +63,10 @@ export default function HomePage() {
                             <span className='wordmarkBlack'>Imagination</span>
                         </div> */}
                     </Container>
-
-                    <Image
-                        id='before'
-                        className='bgImageBefore'
-                        style={{ opacity: beforeOpacity }}
-                        src={Before}
-                        alt={"before"}
-                    />
-                    <Image id='after' className='bgImageAfter' style={{ opacity: afterOpcacity }} src={After} alt={"after"} />
+                    <Image id='raw' className='bgImageBefore' style={{ opacity: rawOpacity }} src={Before} alt={"raw"} />
+                    <Image id='color' className='bgImageAfter' style={{ opacity: colorOpacity }} src={After} alt={"color"} />
                 </div>
             </section>
-            {/* <section id='ourWorks'>
-                <div className='our-works'>
-                    <Container>
-                        <span className='wordmark'>Our works</span>
-                        <Image src={After} alt='project-one' />
-                    </Container>
-                </div>
-            </section>
-            <Container>
-                <span className='wordmark'>Visualize</span>
-                <br />
-                <span className='wordmark'>Your</span>
-                <br />
-                <span className='wordmark'>Imagination</span>
-            </Container> */}
         </Layout>
     );
 }
