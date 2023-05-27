@@ -53,26 +53,21 @@ $brand-yellow: hsl(49, 100%, 50%);
     }
 }
 
-.navbar {
+.logo {
+    margin: 0.5rem 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+}
+
+.navLink {
     display: flex;
-    padding: 1rem 0;
-
-    .logo {
-        margin: 0.5rem 0;
-        width: 2.5rem;
-        height: 2.5rem;
-        object-fit: contain;
-    }
-
-    div {
-        display: flex;
-        justify-items: center;
-        a {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-left: 2.5rem;
-            align-self: center;
-            color: #333333;
-        }
+    justify-items: center;
+    a {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-left: 2.5rem;
+        align-self: center;
+        color: #333333;
     }
 }

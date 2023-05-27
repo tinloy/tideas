@@ -11,11 +11,11 @@ export default function Navbar() {
         <Box sx={{ display: "flex" }}>
             <AppBar component='nav'>
                 <Toolbar>
-                    <Container className='navbar'>
+                    <Container className='navbar' sx={{ display: "flex", pt: "1rem", pb: "1rem" }}>
                         <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
                             <Image src={Logo} className='logo' alt='Logo' />
                         </Box>
-                        <Box component='div'>
+                        <Box component='div' className='navLink' sx={{ display: "flex", justifyContent: "center" }}>
                             <Link href='#Services'>Services</Link>
                             <Link href='#RecentWork'>Recent Work</Link>
                             <Link href='#AboutUs'>About Us</Link>
