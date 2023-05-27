@@ -1,44 +1,38 @@
 import Layout from "../components/layout";
 import Narbar from "../components/navbar";
-import { Container } from "@mui/material";
-import Image from "next/image";
-import Before from "../assets/images/beforeAfter/set1Before.jpg";
-import After from "../assets/images/beforeAfter/set1After.jpg";
+import { Box, Container } from "@mui/material";
 import { useEffect, useState } from "react";
 
 export default function HomePage() {
     const [rawOpacity, setBeforeImgOpacity] = useState(0.5);
     const [colorOpacity, setAfterImgOpcacity] = useState(0);
 
-    const handleScroll = () => {
+    const calculateOpacityValues = () => {
         const rawImg = document.getElementById("raw");
         const imgHeight = rawImg.clientHeight;
-        const position = window.pageYOffset;
-
+        const yPosition = window.pageYOffset;
         const landingSection = document.getElementById("landingSection");
 
-        let opacity = 0.5;
-        if (position > 0 && position < landingSection.clientHeight / 2) {
-            opacity = position / landingSection.clientHeight;
-            opacity = 0.5 - opacity;
-            // console.log("Opacity value: " + opacity);
-            setBeforeImgOpacity(opacity);
+        let rawImgOpacity = 0.5;
+        if (yPosition > 0 && yPosition < landingSection.clientHeight / 2) {
+            rawImgOpacity = yPosition / (landingSection.clientHeight - imgHeight);
+            rawImgOpacity = 0.5 - rawImgOpacity;
+            setBeforeImgOpacity(rawImgOpacity);
         }
 
-        let afterOpacit = 0;
-        if (position > (landingSection.clientHeight - imgHeight) / 2 && position < landingSection.clientHeight) {
-            afterOpacit = 0.5 - position / (landingSection.clientHeight - imgHeight);
-            afterOpacit = Math.abs(afterOpacit);
-            console.log("Opacity value:" + afterOpacit);
-            setAfterImgOpcacity(afterOpacit);
+        let renderedImgOpcacity = 0;
+        if (yPosition > (landingSection.clientHeight - imgHeight) / 2 && yPosition < landingSection.clientHeight) {
+            renderedImgOpcacity = 0.5 - yPosition / (landingSection.clientHeight - imgHeight);
+            renderedImgOpcacity = Math.abs(renderedImgOpcacity);
+            setAfterImgOpcacity(renderedImgOpcacity);
         }
-        console.log(position);
     };
 
     useEffect(() => {
-        window.addEventListener("scroll", handleScroll, { passive: true });
+        calculateOpacityValues();
+        window.addEventListener("scroll", calculateOpacityValues, { passive: true });
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("scroll", calculateOpacityValues);
         };
     });
 
@@ -48,23 +42,23 @@ export default function HomePage() {
                 <div className='heroImg'>
                     <Narbar />
                     <Container>
-                        <div style={{ opacity: 1 }} className='sologan'>
+                        <div style={{ opacity: rawOpacity * 2 }} className='sologan'>
                             <span className='wordmarkWhite'>Visualize</span>
                             <br />
                             <span className='wordmarkWhite'>Your</span>
                             <br />
                             <span className='wordmarkWhite'>Imagination</span>
                         </div>
-                        {/* <div style={{ opacity: afterOpcacity }} className='sologan'>
+                        <div style={{ opacity: colorOpacity * 2 }} className='sologan'>
                             <span className='wordmarkBlack'>Visualize</span>
                             <br />
                             <span className='wordmarkBlack'>Your</span>
                             <br />
                             <span className='wordmarkBlack'>Imagination</span>
-                        </div> */}
+                        </div>
                     </Container>
-                    <Image id='raw' className='bgImageBefore' style={{ opacity: rawOpacity }} src={Before} alt={"raw"} />
-                    <Image id='color' className='bgImageAfter' style={{ opacity: colorOpacity }} src={After} alt={"color"} />
+                    <Box id='raw' className='rawImage' style={{ opacity: rawOpacity }} />
+                    <Box className='renderedImage' style={{ opacity: colorOpacity }} />
                 </div>
             </section>
         </Layout>
