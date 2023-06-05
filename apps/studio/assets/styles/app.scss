@@ -1,15 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Satisfy&family=Send+Flowers&display=swap");
 @import "./landingSection.scss";
 @import "./ourWorks.scss";
+@import "./servicesPage.scss";
+@import "./navbar.scss";
+@import "./footer.scss";
 
 body {
     padding: 0;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-        Helvetica Neue, sans-serif;
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+        Droid Sans, Helvetica Neue, sans-serif;
+    font-weight: 300;
+}
+
+p {
+    color: #333333;
+    font-weight: 300 !important;
 }
 
 a {
     color: inherit;
     text-decoration: none;
+}
+
+::selection {
+    background: $brand-yellow;
 }

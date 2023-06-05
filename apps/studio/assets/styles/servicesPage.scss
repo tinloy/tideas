@@ -1,0 +1,66 @@
+.serviceHero {
+    position: relative;
+}
+
+.serviceTitle {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+    color: white;
+    font-weight: 100;
+}
+
+.serviceItem {
+    display: flex;
+    flex-direction: row;
+    margin-top: 8rem;
+    width: 100%;
+
+    .serviceImage {
+        display: block;
+        width: fit-content;
+        height: fit-content;
+        width: 50%;
+        padding-right: 50px;
+    }
+
+    img {
+        width: 100%;
+        height: fit-content;
+        object-fit: contain;
+    }
+
+    .serviceDescription {
+        width: 50%;
+        padding-right: 50px;
+
+        .heading {
+            font-weight: 100;
+            font-size: 2.5rem;
+            padding: 2rem 0;
+        }
+    }
+}
+
+.rawImage {
+    width: 100%;
+    height: 50vh;
+    background-image: url("../images/beforeAfter/Anders-House-Kitchen-Eshot-white-out-min-scaled2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+}
+
+.backdrop {
+    background-color: black;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50vh;
+    opacity: 0.6;
+}

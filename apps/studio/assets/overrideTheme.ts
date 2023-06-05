@@ -7,6 +7,9 @@ export const theme = createTheme({
         },
     },
     components: {
+        // MuiContainer: {
+
+        // }
         MuiAppBar: {
             styleOverrides: {
                 root: {

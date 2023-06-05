@@ -6,7 +6,7 @@ export default function Layout({ children }: any) {
     return (
         <>
             <Head>
-                <title>tinloy</title>
+                <title>T-Studio</title>
                 <meta name='description' content='Tinloy Render Studio -  Visualise your imagination' />
                 <link rel='icon' href='/tw.ico' />
             </Head>
