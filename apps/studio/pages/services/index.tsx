@@ -7,6 +7,7 @@ import PropertyRender from "../../assets/images/propertyRender1.jpg";
 import PropertyRender2 from "../../assets/images/propertyRender2.jpg";
 import InteriorRender from "../../assets/images/interiorRender1.jpg";
 import FrunitureRender from "../../assets/images/FurnitureRender2.jpg";
+import Contact from "../../components/contact";
 
 export default function Services() {
     return (
@@ -110,6 +111,7 @@ export default function Services() {
                     </Box>
                 </Box>
             </Container>
+            <Contact />
             <Footer />
         </Layout>
     );
