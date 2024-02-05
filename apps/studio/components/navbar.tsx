@@ -15,7 +15,7 @@ export default function Navbar() {
             <Toolbar>
                 <Container className='navbar' sx={{ display: "flex", pt: "1rem", pb: "1rem" }} maxWidth='xl'>
                     <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
-                        <Link href={"/home"}>
+                        <Link href={"/"}>
                             <Image src={Logo} className='logo' alt='Logo' />
                         </Link>
                     </Box>
@@ -23,13 +23,13 @@ export default function Navbar() {
                         <Link href='/services' underline='hover'>
                             Services
                         </Link>
-                        <Link href='#RecentWork' underline='hover'>
-                            Recent Work
+                        <Link href='/recentWorks' underline='hover'>
+                            Recent Works
                         </Link>
-                        <Link href='#AboutUs' underline='hover'>
+                        <Link href='/aboutUs' underline='hover'>
                             About Us
                         </Link>
-                        <Link href='#JoinUs' underline='hover'>
+                        <Link href='/joinUs' underline='hover'>
                             Join Us
                         </Link>
                     </Box>
