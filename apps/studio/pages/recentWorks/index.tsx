@@ -42,7 +42,7 @@ export default function RecentWorks() {
                     Recent<span style={{ fontWeight: 500 }}>&nbsp;Works</span>
                 </Typography>
             </div>
-            <Container className='image-gallery'>
+            <Container sx={{ display: "flex", flexDirection: "row", marginTop: "2rem" }}>
                 <Box component={"div"} className='image-row'>
                     <ImageThumbnail
                         thumbnailSrc={ArmChair01}
