@@ -14,3 +14,34 @@
 .project-one {
     width: 100%;
 }
+
+.image-gallery {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+}
+
+.image-row {
+    height: fit-content;
+    margin-right: 1.5rem;
+    width: 30%;
+}
+
+.image-frame {
+    margin-bottom: 2rem;
+    .image-thumbnail {
+        width: 100%;
+        height: fit-content;
+        border-radius: 1rem;
+    }
+}
+
+.detail-image {
+    width: fit-content;
+    max-width: 80%;
+    height: fit-content;
+    max-height: 80%;
+    border-radius: 1rem;
+    // padding: 1rem;
+    // border: 1px solid #ffd000;
+}

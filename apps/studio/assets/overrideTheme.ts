@@ -7,15 +7,27 @@ export const theme = createTheme({
         },
     },
     components: {
-        // MuiContainer: {
-
-        // }
         MuiAppBar: {
             styleOverrides: {
                 root: {
                     position: "inherit",
                     boxShadow: "none",
                     backgroundColor: "#FFFFFF25",
+                },
+            },
+        },
+        MuiButton: {
+            styleOverrides: {
+                text: {
+                    color: "black",
+                    marginLeft: 30,
+                },
+            },
+        },
+        MuiBackdrop: {
+            styleOverrides: {
+                root: {
+                    // backgroundColor: "#fafafa90",
                 },
             },
         },
