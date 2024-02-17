@@ -1,6 +1,6 @@
 import Layout from "../../components/layout";
 import Narbar from "../../components/navbar";
-import { Backdrop, Box, Container, Typography } from "@mui/material";
+import { Backdrop, Box, Container, ImageList, Typography } from "@mui/material";
 import Footer from "../../components/footer";
 import ArmChair01 from "../../assets/images/furnitures/ArmChair01.jpg";
 import ArmChair02 from "../../assets/images/furnitures/ArmChair02.jpg";
@@ -43,7 +43,7 @@ export default function RecentWorks() {
                 </Typography>
             </div>
             <Container sx={{ display: "flex", flexDirection: "row", marginTop: "2rem" }}>
-                <Box component={"div"} className='image-row'>
+                <ImageList variant='masonry' cols={3} gap={16}>
                     <ImageThumbnail
                         thumbnailSrc={ArmChair01}
                         alt='Arm Chair'
@@ -91,8 +91,7 @@ export default function RecentWorks() {
                             setImageSrc(src);
                         }}
                     />
-                </Box>
-                <Box component={"div"} className='image-row'>
+
                     <ImageThumbnail
                         thumbnailSrc={CoffeeTable03}
                         alt='Coffee Table'
@@ -141,8 +140,6 @@ export default function RecentWorks() {
                             setImageSrc(src);
                         }}
                     />
-                </Box>
-                <Box component={"div"} className='image-row'>
                     <ImageThumbnail
                         thumbnailSrc={SofaDetail01}
                         alt='Sofa Detail'
@@ -183,7 +180,7 @@ export default function RecentWorks() {
                             setBackdropStatus(true);
                         }}
                     />
-                </Box>
+                </ImageList>
             </Container>
             <Contact />
             <Footer />
