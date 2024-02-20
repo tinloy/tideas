@@ -57,12 +57,12 @@ export default function Navbar() {
                                 }}
                             >
                                 <Box sx={{ m: 3 }} component={"div"} className='serviceDropdown'>
-                                    <Link href='/services' underline='hover'>
-                                        Furniture Visualisation
+                                    <Link href='/services/render' underline='hover'>
+                                        3D Visualisation & Render
                                     </Link>
                                     <Divider sx={{ mt: 2, mb: 2 }} />
-                                    <Link href='/services' underline='hover'>
-                                        Architectural Visualisation
+                                    <Link href='/services/web' underline='hover'>
+                                        Web Design & Development
                                     </Link>
                                 </Box>
                             </Popover>

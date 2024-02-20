@@ -1,4 +1,4 @@
-import { Button, Container, Divider, Grid, TextField, Typography } from "@mui/material";
+import { Button, Container, Dialog, DialogContent, Divider, Grid, TextField, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import { useState } from "react";
 
@@ -12,6 +12,8 @@ export default function Contact() {
         industry: "",
         messageBody: "",
     });
+    const [dialogStatus, setDialogStatus] = useState(false);
+    const [dialogMessage, setDialogMessage] = useState("");
 
     const logMessage = (event: React.ChangeEvent<HTMLInputElement>) => {
         switch (event.currentTarget.name) {
@@ -42,20 +44,46 @@ export default function Contact() {
     };
 
     const sendMessage = () => {
+        if (!message.firstName) {
+            setDialogStatus(true);
+            setDialogMessage("Please enter your first name");
+            return;
+        } else if (!message.lastName) {
+            setDialogStatus(true);
+            setDialogMessage("Please enter your last name");
+            return;
+        } else if (!message.email) {
+            setDialogStatus(true);
+            setDialogMessage("Please enter your email address");
+            return;
+        } else if (!message.messageBody) {
+            setDialogStatus(true);
+            setDialogMessage("Please enter your message");
+            return;
+        } else {
+            setDialogMessage("");
+        }
         const emailContent = `Hi Tinloy,<br/><br/>${message.firstName} ${message.lastName} from ${message.company} sent you a message through <b>Tinloy Design Studio</b><br /><br /><b>Role:</b> ${message.role}<br/><br/><b>Industry:</b> ${message.industry}<br/><br/><b>Message:</b> ${message.messageBody}`;
 
-        fetch("https://hb03r9i2tg.execute-api.ap-southeast-2.amazonaws.com/sendImage", {
-            mode: "no-cors",
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                senderEmail: "tinloy.w@gmail.com",
-                message: emailContent,
-            }),
-        });
+        try {
+            fetch("https://hb03r9i2tg.execute-api.ap-southeast-2.amazonaws.com/sendImage", {
+                mode: "no-cors",
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    senderEmail: "tinloy.w@gmail.com",
+                    message: emailContent,
+                }),
+            });
+
+            setDialogStatus(true);
+            setDialogMessage("Thank you for your message, we will be in touch shortly.");
+        } catch (e) {
+            console.log(e);
+        }
     };
 
     return (
@@ -140,14 +168,18 @@ export default function Contact() {
                                 fullWidth
                                 value={message.messageBody}
                                 onChange={logMessage}
+                                required
                             />
                         </Grid>
                     </Grid>
                 </Container>
                 <Button variant='contained' sx={{ mt: 4 }} onClick={sendMessage}>
-                    Drop us a message
+                    Send Message
                 </Button>
             </Container>
+            <Dialog onClose={() => setDialogStatus(false)} open={dialogStatus}>
+                <DialogContent>{dialogMessage}</DialogContent>
+            </Dialog>
         </Box>
     );
 }
