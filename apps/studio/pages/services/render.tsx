@@ -66,7 +66,7 @@ export default function RenderAndVisualisation() {
                 <Box component={"div"} className='serviceItem'>
                     <Box component={"div"} className='serviceImage'>
                         <video style={{ width: "-webkit-fill-available" }} autoPlay playsInline muted loop>
-                            <source src='propertyAnimation.mp4' type='video/mp4'></source>
+                            <source src='/propertyAnimation.mp4' type='video/mp4'></source>
                             Your browser does not support the video tag.
                         </video>
                     </Box>
