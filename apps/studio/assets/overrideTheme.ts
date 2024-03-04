@@ -3,7 +3,7 @@ import { createTheme } from "@mui/material/styles";
 export const theme = createTheme({
     typography: {
         fontFamily: [
-            "Taviraj",
+            "Urbanist",
             "serif",
             "-apple-system",
             "BlinkMacSystemFont",

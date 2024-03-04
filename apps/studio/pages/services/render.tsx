@@ -30,9 +30,8 @@ export default function RenderAndVisualisation() {
                                 <span style={{ fontWeight: 600 }}>Architectural</span>&nbsp;Visualisation
                             </Typography>
                             <Typography sx={{ fontSize: "1.5rem" }}>
-                                Showcase your architectural design with photorealistic CGIs. From architects to developers and
-                                from large-scale schemes to one-off bespoke builds, we assist our clients in adding marketing
-                                value, selling off-plan and creating impressive presentations with our stunning CGIs.
+                                Showcase your architectural design with photorealistic CGIs. From architects to developers and from large-scale schemes to one-off bespoke builds, we assist our
+                                clients in adding marketing value, selling off-plan and creating impressive presentations with our stunning CGIs.
                             </Typography>
                             <Button variant='contained' sx={{ mt: 8 }}>
                                 See More
@@ -48,10 +47,9 @@ export default function RenderAndVisualisation() {
                                 <span style={{ fontWeight: 600 }}>Interior</span>&nbsp;Visualisation
                             </Typography>
                             <Typography sx={{ fontSize: "1.5rem" }}>
-                                Let your audience visualise their dream spaces. We work with house builders, commercial
-                                developers and high-end interior designers to create stunning interior design renders, fit-out
-                                animations and marketing CGIs. These visualisations predominantly assist in marketing, off-plan
-                                sales and the development of interior design schemes.
+                                Let your audience visualise their dream spaces. We work with house builders, commercial developers and high-end interior designers to create stunning interior
+                                design renders, fit-out animations and marketing CGIs. These visualisations predominantly assist in marketing, off-plan sales and the development of interior
+                                design schemes.
                             </Typography>
                             <Button variant='contained' sx={{ mt: 8 }}>
                                 See More
@@ -76,10 +74,9 @@ export default function RenderAndVisualisation() {
                                 <span style={{ fontWeight: 600 }}>Architectural</span>&nbsp;Animation
                             </Typography>
                             <Typography sx={{ fontSize: "1.5rem" }}>
-                                In a world where video is quickly becoming an expectation, make your design stand out amongst
-                                the rest with a cinematic architectural animation that grabs the audience&apos;s attention. We
-                                combine animated 3D renders with live-action footage and captivating motion graphics to produce
-                                informative storytelling experiences.
+                                In a world where video is quickly becoming an expectation, make your design stand out amongst the rest with a cinematic architectural animation that grabs the
+                                audience&apos;s attention. We combine animated 3D renders with live-action footage and captivating motion graphics to produce informative storytelling
+                                experiences.
                             </Typography>
                             <Button variant='contained' sx={{ mt: 8 }}>
                                 See More
@@ -95,10 +92,9 @@ export default function RenderAndVisualisation() {
                                 <span style={{ fontWeight: 600 }}>Furniture</span>&nbsp;Visualisation
                             </Typography>
                             <Typography sx={{ fontSize: "1.5rem" }}>
-                                Bring your products to life and make them completely customisable to align with your brand
-                                identity and streamline your marketing. Say goodbye to photoshoots and use 3D furniture
-                                visualisation to take your product launches and e-commerce capabilities to the next level. With
-                                CGI rendering, the possibilities are quite literally endless. Virtually anything is possible.
+                                Bring your products to life and make them completely customisable to align with your brand identity and streamline your marketing. Say goodbye to photoshoots
+                                and use 3D furniture visualisation to take your product launches and e-commerce capabilities to the next level. With CGI rendering, the possibilities are quite
+                                literally endless. Virtually anything is possible.
                             </Typography>
                             <Button variant='contained' sx={{ mt: 8 }}>
                                 See More
