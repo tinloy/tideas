@@ -1,30 +1,15 @@
 import Logo from "../assets/images/twInitials.png";
 import Image from "next/image";
-import { Button, Container, Divider, Link, Popover, Typography } from "@mui/material";
+import { Button, Container, Divider, Link, Popover } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import { Fragment, useState } from "react";
 
 export default function Navbar() {
-    const [bgColor, setBgColor] = useState("#ffffff50");
-    const [textColor, setTextColor] = useState("#FFFFFF");
-
     const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
-    const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handlePopoverClose = () => {
-        setAnchorEl(null);
-    };
-
     const open = Boolean(anchorEl);
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
@@ -33,7 +18,7 @@ export default function Navbar() {
     const id = open ? "simple-popover" : undefined;
 
     return (
-        <AppBar component='nav' sx={{ display: "flex", background: bgColor }}>
+        <AppBar component='nav' position='fixed' sx={{ display: "flex", background: "#ffffff50" }}>
             <Toolbar>
                 <Container className='navbar' sx={{ display: "flex", pt: "1rem", pb: "1rem" }} maxWidth='xl'>
                     <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
@@ -50,7 +35,7 @@ export default function Navbar() {
                                 id={id}
                                 open={open}
                                 anchorEl={anchorEl}
-                                onClose={handleClose}
+                                onClose={() => setAnchorEl(null)}
                                 anchorOrigin={{
                                     vertical: "bottom",
                                     horizontal: "left",

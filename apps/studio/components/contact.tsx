@@ -1,5 +1,6 @@
 import { Button, Container, Dialog, DialogContent, Divider, Grid, TextField, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
+import axios from "axios";
 import { useState } from "react";
 
 export default function Contact() {
@@ -43,7 +44,7 @@ export default function Contact() {
         }
     };
 
-    const sendMessage = () => {
+    const sendMessage = async () => {
         if (!message.firstName) {
             setDialogStatus(true);
             setDialogMessage("Please enter your first name");
@@ -66,24 +67,16 @@ export default function Contact() {
         const emailContent = `Hi Tinloy,<br/><br/>${message.firstName} ${message.lastName} from ${message.company} sent you a message through <b>Tinloy Design Studio</b><br /><br /><b>Role:</b> ${message.role}<br/><br/><b>Industry:</b> ${message.industry}<br/><br/><b>Message:</b> ${message.messageBody}`;
 
         try {
-            fetch("https://hb03r9i2tg.execute-api.ap-southeast-2.amazonaws.com/sendImage", {
-                mode: "no-cors",
-                method: "POST",
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    senderEmail: "tinloy.w@gmail.com",
-                    message: emailContent,
-                }),
+            await axios.post("/api/sendMessage", {
+                senderEmail: "tinloy.w@gmail.com",
+                message: emailContent,
             });
-
-            setDialogStatus(true);
-            setDialogMessage("Thank you for your message, we will be in touch shortly.");
         } catch (e) {
             console.log(e);
         }
+
+        setDialogStatus(true);
+        setDialogMessage("Thank you for your message, we will be in touch shortly.");
     };
 
     return (

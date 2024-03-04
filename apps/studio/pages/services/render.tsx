@@ -12,13 +12,13 @@ export default function RenderAndVisualisation() {
     return (
         <Layout>
             <Narbar />
-            <div className='serviceHero'>
+            {/* <div className='serviceHero'>
                 <Box component={"div"} className='rawImage'></Box>
                 <Box component={"div"} className='backdrop' />
                 <Typography variant='h1' className='serviceTitle'>
                     Render<span style={{ fontWeight: 500 }}>&nbsp;& Visualisation</span>
                 </Typography>
-            </div>
+            </div> */}
             <Container maxWidth={false}>
                 <Box component={"div"} className='serviceItem'>
                     <Box component={"div"} className='serviceImage'>
